@@ -1,0 +1,13 @@
+<div class="container">
+    <form ng-submit="addTodo(todo)">
+        <div class="form-group">
+            <input type="text" required ng-model="todo"/>
+            <input type="submit" value="Add"/>
+        </div>
+    </form>
+</div>
+<div class="container">
+    <ul ng-repeat="todo in todos track by $index">
+        <li>{{ todo }}</li>
+    </ul>
+</div>
