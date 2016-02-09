@@ -1,13 +1,20 @@
-<div class="container">
-    <form ng-submit="addTodo(todo)">
-        <div class="form-group">
-            <input type="text" required ng-model="todo"/>
-            <input type="submit" value="Add"/>
-        </div>
-    </form>
-</div>
-<div class="container">
-    <ul ng-repeat="todo in todos track by $index">
-        <li>{{ todo }}</li>
-    </ul>
+<div flex="70">
+    <div>
+        <form>
+            <md-input-container>
+                <label>Tarea</label>
+                <input ng-model="todo">
+            </md-input-container>
+            <md-button ng-click="addTodo(todo)" type="submit" class="md-raised md-primary">Add</md-button>
+            <md-button ng-click="deleteAll()" class="md-raised md-warn">Delete all task</md-button>
+        </form>
+    </div>
+    <div>
+        <md-list ng-cloak>
+            <md-list-item class="task" ng-repeat="todo in todos track by $index">
+                <p>{{ todo }}</p>
+                <md-button class="md-warn" ng-click="deleteTask()">Delete</md-button>
+            </md-list-item>
+        </md-list>
+    </div>
 </div>
